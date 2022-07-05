@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>kesme animasyonu</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <style>
+    *{
+        margin: 0;
+     padding: 0;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: 2rem;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 300ms all;
+        
+    }
+    ul{list-style-type: none;
+        transition: 300ms all;
+      
+
+    }
+    li{
+        position: relative;
+        overflow: hidden;
+        transition: 300ms all;
+    }
+    li::before{
+        content: "";
+        display: block;
+        background-color: black;
+        width: 100%;
+        height: 0.1rem;
+       position: absolute;
+        transform: rotate(9.5deg);
+        top: 65%;
+        left: -100%;
+        transition: 300ms all;
+       
+    }
+    li:hover::before{
+        left: 100%;
+    }
+    a{
+        text-decoration: none;
+        color: blueviolet;
+        margin: 1rem;
+        display: block;
+        position: relative;
+        color: transparent;
+        transition: 300ms all;
+      
+        
+    }
+    
+    a::before , a::after{
+        content: attr(data-text);
+      position: absolute;
+      transition: 300ms all;
+      color: black;
+      
+      top: 0;
+      left: 0;
+     
+
+    }
+    a::before{
+      
+        clip-path: polygon(0 0, 100% 0%, 100% 65%, 1% 35%);
+    }
+    a::after{
+       
+        clip-path: polygon(0 100%, 100% 100%, 100% 65%, 1% 35%);
+    }
+    a:hover::after{
+        transform: translatey(5px);
+    }
+    a:hover::before{
+        transform: translatey(-5px);
+    }
+   
+
+   </style>
+</head>
+<body>
+    <div class="container">
+       
+            <ul>
+                <li><a href="#" data-text="home">home</a></li>
+                <li><a href="#" data-text="about">about</a></li>
+                <li><a href="#" data-text="team">team</a></li>
+                <li><a href="#" data-text="blog">blog</a></li>
+                <li><a href="#" data-text="contact">contact</a></li>
+            </ul>
+        
+    </div>
+    
+</body>
+</html>
